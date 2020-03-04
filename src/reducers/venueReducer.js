@@ -1,3 +1,12 @@
+import {
+    FETCH_START,
+    FETCH_SUCCESS,
+    FETCH_ERROR,
+    UPDATE_LOCATION,
+    UPDATE_TYPE
+  } from "../actions/venueActions";
+
+
 const initialState = {
     // our "success" state
     venues: [],
@@ -11,7 +20,24 @@ const initialState = {
 
   export function reducer(state = initialState, action) {
     switch (action.type) {
-      
+      //FETCH VENUES REDUCER CASES
+      case FETCH_START:
+        return {
+          ...state,
+          isLoading: true
+        };
+      case FETCH_SUCCESS:
+        return {
+          ...state,
+          venues: [...action.payload],
+          isLoading: false
+        };
+      case FETCH_ERROR:
+        return {
+          ...state,
+          error: action.payload,
+          isLoading: false
+        };
       default:
         return state;
     }
