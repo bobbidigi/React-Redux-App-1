@@ -38,6 +38,17 @@ const initialState = {
           error: action.payload,
           isLoading: false
         };
+        // UPDATE REDUCER CASES
+        case UPDATE_LOCATION:
+      return {
+        ...state,
+        location: action.payload
+      };
+      case UPDATE_TYPE:
+      return {
+        ...state,
+        type: action.payload
+      };
       default:
         return state;
     }

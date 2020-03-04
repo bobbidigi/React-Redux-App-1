@@ -1,8 +1,9 @@
 import axios from "axios";
-
+//Fetch
 export const FETCH_START = "FETCH_TACO_START";
 export const FETCH_SUCCESS = "FETCH_TACO_SUCCESS";
 export const FETCH_ERROR = "FETCH_TACO_ERROR";
+// Update 
 export const UPDATE_LOCATION = "UPDATE_LOCATION";
 export const UPDATE_TYPE = "UPDATE_TYPE";
 
@@ -29,3 +30,17 @@ export function fetchVenues(city, queryType) {
     });
   };
 }
+
+
+//UPDATE ACtions
+export function updateLocation(city) {
+    return dispatch => {
+      dispatch({ type: UPDATE_LOCATION, payload: city });
+    };
+  }
+  
+  export function updateType(type){
+    return dispatch => {
+      dispatch({type: UPDATE_TYPE, payload: type})
+    }
+  }

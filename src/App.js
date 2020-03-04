@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import { fetchVenues } from "./actions/venueActions";
+import { fetchVenues, updateLocation, updateType } from "./actions/venueActions";
 import { connect } from "react-redux";
 import VenueList from './components/VenueList';
 
@@ -23,7 +23,7 @@ function App(props) {
     e.preventDefault();
     // setNewLocation("");
     props.updateLocation(newLocation || props.location);
-    props.fetchTacoVenues(newLocation, newType)
+    props.fetchVenues(newLocation, newType)
   };
 
   //Ask Skylar if there is a way to 
@@ -72,7 +72,9 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   // send a version of our action creator that's attached to
   // the dispatcher to the component as a prop
-  fetchVenues
+  fetchVenues,
+  updateLocation,
+  updateType
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
