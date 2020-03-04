@@ -29,7 +29,9 @@ function App(props) {
       setNewType={setNewType}
       updateLocation={props.updateLocation}
       updateType={props.updateType} />
-      <VenueList venues={props.venues}/>
+      <VenueList newLocation={newLocation}
+        newType={newType}
+        venues={props.venues}/>
     </div>
   );
 }
