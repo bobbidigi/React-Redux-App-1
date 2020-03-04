@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import './App.css';
 import { fetchVenues } from "./actions/venueActions";
 import { connect } from "react-redux";
+import VenueList from './components/VenueList';
 
 function App(props) {
  console.log("APP.js",props)
@@ -15,7 +16,7 @@ function App(props) {
 
   return (
     <div className="App">
-     App
+     <VenueList venues={props.venues}/>
     </div>
   );
 }
