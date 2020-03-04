@@ -89,13 +89,13 @@ img {
   }
 }
 
-.taco-list{
+.venue-list{
   width: 400px;
   max-width: 90%;
   margin: 0 auto;
 }
 
-.taco-list .hero{
+.venue-list .hero{
  width: 100%;
 }
 
