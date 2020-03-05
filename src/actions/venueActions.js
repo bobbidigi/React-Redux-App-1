@@ -1,13 +1,13 @@
 import axios from "axios";
 //Fetch
-export const FETCH_START = "FETCH_TACO_START";
-export const FETCH_SUCCESS = "FETCH_TACO_SUCCESS";
-export const FETCH_ERROR = "FETCH_TACO_ERROR";
+export const FETCH_START = "FETCH_START";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_ERROR = "FETCH_ERROR";
 // Update 
 export const UPDATE_LOCATION = "UPDATE_LOCATION";
 export const UPDATE_TYPE = "UPDATE_TYPE";
 
-export function fetchVenues(city, queryType) {
+export function fetchVenues(city, queryID) {
     const REACT_APP_ID = process.env.REACT_APP_ID;
     const REACT_APP_SECRET = process.env.REACT_APP_SECRET;
     // console.log(REACT_APP_ID)
@@ -18,7 +18,7 @@ export function fetchVenues(city, queryType) {
     // whenever we want. allows our action creator to be asyncronous.
     dispatch({ type: FETCH_START });
     axios
-    .get(`https://api.foursquare.com/v2/venues/search?client_id=${REACT_APP_ID}&client_secret=${REACT_APP_SECRET}&v=20180323&limit=20&near=${city}&query=${queryType}&&radius=10000`)
+    .get(`https://api.foursquare.com/v2/venues/search?client_id=${REACT_APP_ID}&client_secret=${REACT_APP_SECRET}&v=20180323&limit=20&near=${city}&categoryId=${queryID}&&radius=10000`)
     .then(res => {
         // Code for handling API response
         console.log("FSQ", res.data.response.venues)
