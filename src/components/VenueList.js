@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import Venue from './Venue'
-import image from './hamburger.png'
+import hamburgerImage from './hamburger.png'
+import ogImage from './og.png'
+
 import {useDispatch} from 'react-redux'
 import {fetchVenues} from '../actions/venueActions'
 
@@ -17,7 +19,8 @@ export default function VenueList(props) {
         <div className="venue-list">
             <h1>{props.userLocation}</h1>
 
-                <img className="hero" src={image}/>
+                <img className="hero" src={hamburgerImage}/>
+                <img className="hero" src={ogImage}/>
                 {props.venues.map((item, index) => (<Venue venue={item} key={index}/>)
                 )}
         </div>
