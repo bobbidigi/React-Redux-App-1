@@ -17,7 +17,6 @@ export function fetchVenues(city, queryType) {
     // we can kick off as many actions as we want,
     // whenever we want. allows our action creator to be asyncronous.
     dispatch({ type: FETCH_START });
-
     axios
     .get(`https://api.foursquare.com/v2/venues/search?client_id=${REACT_APP_ID}&client_secret=${REACT_APP_SECRET}&v=20180323&limit=20&near=${city}&query=${queryType}&&radius=10000`)
     .then(res => {

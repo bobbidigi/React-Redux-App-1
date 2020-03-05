@@ -38,6 +38,7 @@ const initialState = {
           error: action.payload,
           isLoading: false
         };
+        
         // UPDATE REDUCER CASES
         case UPDATE_LOCATION:
       return {
