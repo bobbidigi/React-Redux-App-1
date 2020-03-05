@@ -14,14 +14,15 @@ function App(props) {
 //  const [category, setCategory] = useState("tacos");
  const [categoryID, setCategoryID] = useState("4bf58dd8d48988d1c1941735");
 
-  useEffect(() => {
-    // kick off our asyncronous action creator
-    dispatch(fetchVenues(newLocation, categoryID));
-  }, []);
+  // useEffect(() => {
+  //   // kick off our asyncronous action creator
+  //   dispatch(fetchVenues(newLocation, categoryID));
+  // }, []);
 
   useEffect(()=>{
     dispatch(fetchVenues(newLocation, categoryID))
-  },[categoryID, newLocation])
+  },[categoryID])
+  
 
   return (
     <div className="App">

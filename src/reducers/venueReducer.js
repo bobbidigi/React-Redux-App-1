@@ -12,7 +12,7 @@ const initialState = {
     venues: [],
     // want to make sure we account for all possible states,
     // including the loading and error states
-    isLoading: false,
+    isLoading: true,
     error: null,
     location: '',
     type: ''
@@ -38,7 +38,7 @@ const initialState = {
           error: action.payload,
           isLoading: false
         };
-        
+
         // UPDATE REDUCER CASES
         case UPDATE_LOCATION:
       return {
