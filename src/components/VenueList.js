@@ -12,10 +12,10 @@ export default function VenueList(props) {
     //     // dispatch(fetchVenues(props.newLocation, props.categoryID))
     // },[ props.newLocation])
 
-    console.log("VenueList", props)
+    // console.log("VenueList", props)
     return (
         <div className="venue-list">
-            <h1>{props.newLocation}</h1>
+            <h1>{props.userLocation}</h1>
 
                 <img className="hero" src={image}/>
                 {props.venues.map((item, index) => (<Venue venue={item} key={index}/>)

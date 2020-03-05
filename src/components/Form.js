@@ -5,7 +5,7 @@ import {updateLocation, fetchVenues} from '../actions/venueActions'
 const Form = (props) => {
     const dispatch = useDispatch()
 
-    console.log("form-props", props)
+    // console.log("form-props", props)
     const handleSubmit = e => {
         e.preventDefault();
         // setNewLocation("");
@@ -15,8 +15,8 @@ const Form = (props) => {
     
       //Ask Skylar if there is a way to 
     const handleSelectChanges = e => {
-      console.log(e.target.name)
-      console.log(e.target.value)
+      // console.log(e.target.name)
+      // console.log(e.target.value)
         props.setCategoryID(e.target.value)
     }
     
@@ -29,9 +29,9 @@ const Form = (props) => {
           <input
             type="text"
             name="newLocation"
-            // placeholder={props.location} 
-            placeholder="city"
-            value={'' || props.newLocation}
+            placeholder={props.userLocation} 
+            // placeholder="city"
+            value={'' || props.newLocation }
             onChange={handleInputChanges}
           />
           <select name={props.categoryID} onChange={handleSelectChanges}>

@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react'
 
 export default function Venue(props) {
 
-console.log("Venue", props)
-console.log("categories", props.venue.categories)
+// console.log("Venue", props)
+// console.log("categories", props.venue.categories)
 
 
 const [newImage, setImg] = useState('https://picsum.photos/64/64?random=1?grayscale')
@@ -11,7 +11,7 @@ const [newImage, setImg] = useState('https://picsum.photos/64/64?random=1?graysc
 useEffect(()=>{
     if(props.venue.categories[0]){
         const icon = props.venue.categories[0].icon
-        console.log(icon)
+        // console.log(icon)
         setImg(`${icon.prefix}64${icon.suffix}`)
     }else{
         console.log("no icon")

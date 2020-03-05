@@ -3,7 +3,10 @@ import {
     FETCH_SUCCESS,
     FETCH_ERROR,
     UPDATE_LOCATION,
-    UPDATE_TYPE
+    UPDATE_TYPE,
+    LOCATION_START,
+    LOCATION_SUCCESS,
+    LOCATION_ERROR
   } from "../actions/venueActions";
 
 
@@ -12,10 +15,11 @@ const initialState = {
     venues: [],
     // want to make sure we account for all possible states,
     // including the loading and error states
-    isLoading: true,
+    isLoading: false,
     error: null,
     location: '',
-    type: ''
+    type: '',
+    userLocation: ''
   };
 
   export function reducer(state = initialState, action) {
@@ -50,6 +54,19 @@ const initialState = {
         ...state,
         type: action.payload
       };
+
+      //USER LOCATION
+      case LOCATION_START:
+        return{
+          ...state,
+          isLoading: true
+        }
+      case LOCATION_SUCCESS:
+        return{
+          ...state,
+          isLoading: false,
+          userLocation: action.payload
+        }  
       default:
         return state;
     }
