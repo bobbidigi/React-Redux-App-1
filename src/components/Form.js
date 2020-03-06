@@ -1,15 +1,21 @@
 import React, {useState, useEffect} from 'react'
 import {useDispatch} from 'react-redux'
-import {updateLocation, fetchVenues} from '../actions/venueActions'
+import {updateLocation, updateCategory, fetchVenues} from '../actions/venueActions'
 
 const Form = (props) => {
     const dispatch = useDispatch()
     const [newLocation, setNewLocation] = useState(props.location)
+    const [newCategory, setNewCategory] = useState(props.categoryID)
 
   useEffect(()=>{
       // dispatch(fetchVenues(newLocation, props.categoryID))
       dispatch(updateLocation(newLocation))
     },[newLocation])
+
+    useEffect(()=>{
+      // dispatch(fetchVenues(newLocation, props.categoryID))
+      dispatch(updateCategory(newCategory))
+    },[newCategory])
 
 
     
@@ -25,7 +31,7 @@ const Form = (props) => {
     const handleSelectChanges = e => {
       // console.log(e.target.name)
       // console.log(e.target.value)
-        props.setCategoryID(e.target.value)
+        setNewCategory(e.target.value)
     }
     
     const handleInputChanges = e => {

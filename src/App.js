@@ -11,8 +11,6 @@ function App(props) {
  const state = useSelector(state => state);
  console.log("appstsate",state)
 
- const [categoryID, setCategoryID] = useState("4bf58dd8d48988d1c1941735");
-
   useEffect(() => {
     // kick off our asyncronous action creator
     // fetch user location which also dispatches update location to set the global state of location to the users location
@@ -20,12 +18,12 @@ function App(props) {
   }, []);
 
   useEffect(()=>{
-    dispatch(fetchVenues(state.location, categoryID))
+    dispatch(fetchVenues(state.location, state.categoryID))
   },[state.location])
 
   useEffect(()=>{
-    dispatch(fetchVenues(state.location, categoryID))
-  },[categoryID])
+    dispatch(fetchVenues(state.location, state.categoryID))
+  },[state.categoryID])
 
   
 
@@ -36,15 +34,13 @@ function App(props) {
       //location
       userLocation={state.userLocation} 
       //id
-      categoryID={categoryID}
-      setCategoryID={setCategoryID}
+      categoryID={state.categoryID}
       //user Location
       userLocation={state.userLocation}
       />
 
       <VenueList
-      userLocation={state.userLocation}
-        categoryID={categoryID}
+        location={state.location}
         venues={state.venues}/>
     </div>
   );

@@ -3,7 +3,7 @@ import {
     FETCH_SUCCESS,
     FETCH_ERROR,
     UPDATE_LOCATION,
-    UPDATE_TYPE,
+    UPDATE_CATEGORY,
     LOCATION_START,
     LOCATION_SUCCESS,
     LOCATION_ERROR
@@ -19,7 +19,8 @@ const initialState = {
     error: null,
     location: '',
     type: '',
-    userLocation: ''
+    userLocation: '',
+    categoryID: '4bf58dd8d48988d1c1941735'
   };
 
   export function reducer(state = initialState, action) {
@@ -49,10 +50,10 @@ const initialState = {
         ...state,
         location: action.payload
       };
-      case UPDATE_TYPE:
+      case UPDATE_CATEGORY:
       return {
         ...state,
-        type: action.payload
+        categoryID: action.payload
       };
 
       //USER LOCATION
@@ -66,7 +67,13 @@ const initialState = {
           ...state,
           isLoading: false,
           userLocation: action.payload
-        }  
+        }
+      case LOCATION_ERROR:
+        return{
+          ...state,
+          isLoading: false,
+          error: action.payload
+        }    
       default:
         return state;
     }

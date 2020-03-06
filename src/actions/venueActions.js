@@ -11,7 +11,7 @@ export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_ERROR = "FETCH_ERROR";
 // Update
 export const UPDATE_LOCATION = "UPDATE_LOCATION";
-export const UPDATE_TYPE = "UPDATE_TYPE";
+export const UPDATE_CATEGORY = "UPDATE_TYPE";
 
 export function fetchVenues(city, queryID) {
   const REACT_APP_ID = process.env.REACT_APP_ID;
@@ -45,9 +45,9 @@ export function updateLocation(city) {
   };
 }
 
-export function updateType(type){
+export function updateCategory(id){
   return dispatch => {
-    dispatch({type: UPDATE_TYPE, payload: type})
+    dispatch({type: UPDATE_CATEGORY, payload: id})
   }
 }
 
