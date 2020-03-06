@@ -20,6 +20,7 @@ export default function VenueList(props) {
             <h1>{props.userLocation}</h1>
 
                 <img className="hero" src={hamburgerImage}/>
+                {/* got rid of this image */}
                 {/* <img className="hero" src={ogImage}/> */}
                 {props.venues.map((item, index) => (<Venue venue={item} key={index}/>)
                 )}
