@@ -24,7 +24,7 @@ function App(props) {
 
   useEffect(()=>{
     dispatch(fetchVenues(state.userLocation, categoryID))
-  },[state.userLocation])
+  },[state.userLocation, categoryID])
   
 
   return (
