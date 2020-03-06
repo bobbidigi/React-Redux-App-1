@@ -51,14 +51,16 @@ export function updateType(type){
   }
 }
 
+
+//location action
 export function fetchLocation() {
   return dispatch => {
     dispatch({ type: LOCATION_START });
 
-    axios.get('http://ipinfo.io?token=ea7f69e10eff85')
+    axios.get('https://ipinfo.io?token=ea7f69e10eff85')
     .then(function (res) {
       // handle success
-      console.log(res.data.city);
+      console.log("location response",res.data.city);
       dispatch({ type: LOCATION_SUCCESS, payload: res.data.city });
     })
     .catch(function (error) {
@@ -66,5 +68,4 @@ export function fetchLocation() {
       console.log(error.response);
     })
   }
-  
 }
