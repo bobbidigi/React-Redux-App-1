@@ -62,6 +62,7 @@ export function fetchLocation() {
       // handle success
       console.log("location response",res.data.city);
       dispatch({ type: LOCATION_SUCCESS, payload: res.data.city });
+      dispatch({type: UPDATE_LOCATION, payload: res.data.city })
     })
     .catch(function (error) {
       // handle error

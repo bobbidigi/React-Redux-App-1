@@ -9,18 +9,15 @@ function App(props) {
  console.log("APP.js",props)
  const dispatch = useDispatch();
  const state = useSelector(state => state);
- console.log(state)
+ console.log("appstsate",state)
 
- const [newLocation, setNewLocation] = useState("");
+//  const [newLocation, setNewLocation] = useState("");
 //  const [category, setCategory] = useState("tacos");
  const [categoryID, setCategoryID] = useState("4bf58dd8d48988d1c1941735");
 
   useEffect(() => {
     // kick off our asyncronous action creator
     dispatch(fetchLocation())
-    setNewLocation(props.userLocation)
-    // this.props.location.formattedAddress[0]
-    // dispatch(fetchVenues(newLocation, categoryID));
   }, []);
 
   useEffect(()=>{
@@ -28,12 +25,9 @@ function App(props) {
   },[state.userLocation])
 
   useEffect(()=>{
-    dispatch(fetchVenues(newLocation, categoryID))
+    dispatch(fetchVenues(state.location, categoryID))
   },[categoryID])
 
-  useEffect(()=>{
-    dispatch(fetchVenues(newLocation, categoryID))
-  },[newLocation])
   
 
   return (
@@ -41,8 +35,7 @@ function App(props) {
       
       <Form
       //location
-      newLocation={newLocation} 
-      setNewLocation={setNewLocation}
+      userLocation={state.userLocation} 
       //id
       categoryID={categoryID}
       setCategoryID={setCategoryID}
@@ -52,7 +45,6 @@ function App(props) {
 
       <VenueList
       userLocation={state.userLocation}
-      newLocation={newLocation}
         categoryID={categoryID}
         venues={state.venues}/>
     </div>

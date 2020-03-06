@@ -1,16 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {updateLocation, fetchVenues} from '../actions/venueActions'
 
 const Form = (props) => {
     const dispatch = useDispatch()
-
+    const [newLocation, setNewLocation] = useState(props.location)
     // console.log("form-props", props)
     const handleSubmit = e => {
         e.preventDefault();
         // setNewLocation("");
-        dispatch(updateLocation(props.newLocation || props.location));
-        dispatch(fetchVenues(props.newLocation, props.categoryID));
+        dispatch(updateLocation(newLocation || props.location));
+        dispatch(fetchVenues(newLocation, props.categoryID));
     };
     
       //Ask Skylar if there is a way to 
@@ -21,14 +21,14 @@ const Form = (props) => {
     }
     
     const handleInputChanges = e => {
-        props.setNewLocation(e.target.value);
+        setNewLocation(e.target.value);
     };  
 
     return (
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            name="newLocation"
+            name="location"
             placeholder={props.userLocation} 
             // placeholder="city"
             value={'' || props.newLocation }
