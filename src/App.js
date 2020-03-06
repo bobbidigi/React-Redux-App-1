@@ -18,6 +18,7 @@ function App(props) {
   useEffect(() => {
     // kick off our asyncronous action creator
     dispatch(fetchLocation())
+    setNewLocation(props.userLocation)
     // this.props.location.formattedAddress[0]
     // dispatch(fetchVenues(newLocation, categoryID));
   }, []);
