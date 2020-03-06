@@ -1,10 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {updateLocation, fetchVenues} from '../actions/venueActions'
 
 const Form = (props) => {
     const dispatch = useDispatch()
     const [newLocation, setNewLocation] = useState(props.location)
+
+  useEffect(()=>{
+      // dispatch(fetchVenues(newLocation, props.categoryID))
+      dispatch(updateLocation(newLocation))
+    },[newLocation])
+
+
+    
     // console.log("form-props", props)
     const handleSubmit = e => {
         e.preventDefault();
