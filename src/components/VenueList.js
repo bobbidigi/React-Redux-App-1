@@ -17,7 +17,7 @@ export default function VenueList(props) {
     // console.log("VenueList", props)
     return (
         <div className="venue-list">
-            <h1>{props.userLocation}</h1>
+            <h1>{props.newLocation}</h1>
 
                 <img className="hero" src={hamburgerImage}/>
                 {/* got rid of this image */}
