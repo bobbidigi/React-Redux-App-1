@@ -3,11 +3,13 @@ import './App.css';
 import { Route } from 'react-router-dom';
 import Home from './components/Home'
 import VenueDetails from './components/VenueDetails'
+import ogImage from './components/images/og.png'
 
 function App(props) {
 
   return (
     <div className="App">
+      <img src={ogImage} style={{display: 'none'}}></img>
 
       <Route 
         exact path="/" 
