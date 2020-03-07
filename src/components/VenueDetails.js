@@ -33,7 +33,7 @@ export default function VenueDetails(props) {
                 {venueDetails.bestPhoto && <img className="hero" src={venueDetails.bestPhoto.prefix + '900x700' + venueDetails.bestPhoto.suffix}/>}
                 <div className="details-info">
                     <h3>{venueDetails.name}</h3>
-                    <p>{venueDetails.url}</p>
+                    <a className="social" href={venueDetails.url}>{venueDetails.url}</a><br/>
                     {venueDetails.location && <>
                     {venueDetails.location.formattedAddress[0]}
                     {venueDetails.location.crossStreet}</>}

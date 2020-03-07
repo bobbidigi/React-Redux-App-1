@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import Home from './components/Home'
 import VenueDetails from './components/VenueDetails'
 import ogImage from './components/images/og.png'
+import Footer from './components/Footer'
 
 function App(props) {
 
@@ -19,6 +20,7 @@ function App(props) {
       <Route 
         exact path="/venue" 
         render={props => <VenueDetails {...props} /> } />
+        <Footer/>
     </div>
   );
 }
