@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import Venue from './Venue'
-import hamburgerImage from './hamburger.png'
+import hamburgerImage from './images/hamburger.png'
 
 
 export default function VenueList(props) {
