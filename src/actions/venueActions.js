@@ -12,6 +12,9 @@ export const FETCH_ERROR = "FETCH_ERROR";
 // Update
 export const UPDATE_LOCATION = "UPDATE_LOCATION";
 export const UPDATE_CATEGORY = "UPDATE_TYPE";
+// FETCH DETAILS
+export const FETCH_DETAILS = "FETCH_DETAILS";
+
 
 export function fetchVenues(city, queryID) {
   const REACT_APP_ID = process.env.REACT_APP_ID;
@@ -67,6 +70,26 @@ export function fetchLocation() {
     .catch(function (error) {
       // handle error
       console.log(error.response);
+    })
+  }
+}
+
+
+//fetch venue details
+export function fetchDetails(id) {
+  const REACT_APP_ID = process.env.REACT_APP_ID;
+  const REACT_APP_SECRET = process.env.REACT_APP_SECRET;
+  return dispatch => {
+
+    axios.get(`https://api.foursquare.com/v2/venues/${id}?client_id=${REACT_APP_ID}&client_secret=${REACT_APP_SECRET}&v=20180323`)
+    .then(function (response) {
+    // handle success
+    console.log("detailsrequest",response.data.response.venue);
+      dispatch({type: FETCH_DETAILS, payload: response.data.response.venue})
+    })
+    .catch(function (error) {
+    // handle error
+    console.log(error);
     })
   }
 }
