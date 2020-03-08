@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <div class="footer">
+        <div className="footer">
             <p>Developed by <strong>Rob Allen</strong>.</p>
             <div className="social-container">
             <a className="social" href="https://github.com/bobbidigi">github</a><br/> 

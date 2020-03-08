@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
 import {fetchDetails} from '../actions/venueActions'
+import Map from './Map'
 import '../App.css';
 
 
@@ -23,7 +23,7 @@ export default function VenueDetails(props) {
     },[state.details])
     
     useEffect(()=>{
-        console.log("deets", venueDetails)
+        // console.log("deets", venueDetails)
         // console.log(venueDetails.location.crossStreet)
     },[venueDetails])
 
@@ -39,6 +39,7 @@ export default function VenueDetails(props) {
                     {venueDetails.location.crossStreet}</>}
                     {venueDetails.contact && <p>{venueDetails.contact.formattedPhone}</p>}
                 </div>
+                <Map />
             </div>
         
     )
