@@ -7,6 +7,7 @@ import '../App.css';
 
 
 export default function VenueDetails(props) {
+    console.log("details-props", props.history.location.state.icon)
     // console.log("details", props.history.location.state.venue.id)
     const id = props.history.location.state.venue.id
     const dispatch = useDispatch()
@@ -41,7 +42,11 @@ export default function VenueDetails(props) {
                         {venueDetails.location.crossStreet}</>}
                         {venueDetails.contact && <p>{venueDetails.contact.formattedPhone}</p>}
                     </div>
-                    <Map lat={lat} lng={lng}/>
+                    <div className="map-container">
+                        <Map lat={lat} lng={lng}
+                        icon={props.history.location.state.icon}
+                        />
+                    </div>
                 </div>
         
     )

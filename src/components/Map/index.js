@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import ReactMapGL, {Marker} from 'react-map-gl';
 import {useDispatch, useSelector} from 'react-redux'
 
-export default function Map({lat, lng}) {
+export default function Map({lat, lng, icon}) {
   const state = useSelector(state => state)
 
 
   const [viewport, setViewport] = useState({
-    width: '100vw',
+    width: '100%',
     height: '50vh',
-    marginBottom: '15rem',
     latitude: 33,
     longitude: 0.9,
     zoom: 11.5
@@ -33,7 +32,7 @@ export default function Map({lat, lng}) {
 
   return (
 
-    <div>
+    <div className="map">
       {state.isLoading ? (<p>...loading</p>) :
       
       
@@ -49,12 +48,15 @@ export default function Map({lat, lng}) {
               latitude: lat,
               longitude: lng,
               zoom: 11.666
-            })}
-      />)
-          }
-
+            })}>
+         <Marker latitude={lat}
+                  longitude={lng}
+         >
+           <div>
+             <img className="marker-icon" src={icon}/>
+           </div>
+         </Marker>
+      </ReactMapGL>)}
     </div>
-    
-    
   );
 }

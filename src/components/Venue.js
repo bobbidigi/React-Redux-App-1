@@ -28,7 +28,8 @@ useEffect(()=>{
         <Link to={{
             pathname: '/venue',
             state: {
-              venue: props.venue 
+              venue: props.venue,
+              icon: newImage 
             }
           }}
          className="card">
