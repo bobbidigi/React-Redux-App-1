@@ -7,7 +7,7 @@ import {
     LOCATION_START,
     LOCATION_SUCCESS,
     LOCATION_ERROR,
-    FETCH_DETAILS
+    FETCH_DETAILS_SUCCESS
   } from "../actions/venueActions";
 
 
@@ -22,7 +22,12 @@ const initialState = {
     type: '',
     userLocation: '',
     categoryID: '4bf58dd8d48988d1c1941735',
-    details: {}
+    details: {
+      location: {
+        lat: 0,
+        lng: 0
+      }
+    }
   };
 
   export function reducer(state = initialState, action) {
@@ -76,11 +81,11 @@ const initialState = {
           isLoading: false,
           error: action.payload
         }
-      case FETCH_DETAILS:
+      case FETCH_DETAILS_SUCCESS:
         return {
           ...state,
+          details: action.payload,
           isLoading: false,
-          details: action.payload
         }      
       default:
         return state;

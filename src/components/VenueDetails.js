@@ -12,6 +12,8 @@ export default function VenueDetails(props) {
     const dispatch = useDispatch()
     const state = useSelector(state => state)
     const [venueDetails, setVenueDetails] = useState(state.details)
+    const {lat, lng} = useSelector(state => state.details.location)
+
     
 
     useEffect(()=>{
@@ -23,7 +25,7 @@ export default function VenueDetails(props) {
     },[state.details])
     
     useEffect(()=>{
-        // console.log("deets", venueDetails)
+        console.log("deets", venueDetails)
         // console.log(venueDetails.location.crossStreet)
     },[venueDetails])
 
@@ -34,12 +36,12 @@ export default function VenueDetails(props) {
                     <div className="details-info">
                         <h3>{venueDetails.name}</h3>
                         <a className="social" href={venueDetails.url}>{venueDetails.url}</a><br/>
-                        {venueDetails.location && <>
+                        {venueDetails.name &&  <>
                         {venueDetails.location.formattedAddress[0]}
                         {venueDetails.location.crossStreet}</>}
                         {venueDetails.contact && <p>{venueDetails.contact.formattedPhone}</p>}
                     </div>
-                    <Map />
+                    <Map lat={lat} lng={lng}/>
                 </div>
         
     )
