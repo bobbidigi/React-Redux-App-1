@@ -210,6 +210,21 @@ input:focus {
   width: 100%;
 }
 
+.details-container .home-icon{
+  position: absolute;
+  top: 0;
+  left: calc(50vw - 1.2rem);
+  padding: .5rem .6rem;
+  background-color: #282c34;
+  border-radius: 50%;
+  border: 1px dashed rgba(113, 221, 203, 0.705);
+}
+.details-container .home-icon .fa-home{
+  
+  
+  color: #fff;
+}
+
 .footer {
   display: flex;
   flex-direction: column;

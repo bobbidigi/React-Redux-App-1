@@ -5,11 +5,21 @@ import Home from './components/Home'
 import VenueDetails from './components/VenueDetails'
 import ogImage from './components/images/og.png'
 import Footer from './components/Footer'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+
+
+// library.add(fab, faCheckSquare, faCoffee)
+
 
 function App(props) {
+  
+  
 
   return (
     <div className="App">
+      
+
       <img src={ogImage} style={{display: 'none'}}></img>
 
       <Route 
