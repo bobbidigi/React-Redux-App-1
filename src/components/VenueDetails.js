@@ -4,13 +4,15 @@ import {fetchDetails} from '../actions/venueActions'
 import Map from './Map'
 import {Link} from 'react-router-dom'
 import '../App.css';
+//font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 
 
 
 export default function VenueDetails(props) {
-    const element = <FontAwesomeIcon icon={faHome} />
+    //font awesome icon
+    const home = <FontAwesomeIcon icon={faHome} />
     
     console.log("details-props", props.history.location.state.icon)
     // console.log("details", props.history.location.state.venue.id)
@@ -39,7 +41,7 @@ export default function VenueDetails(props) {
     return (
                 <div className="details-container">
                     <Link className="home-icon" to="/">
-                    {element}
+                    {home}
                     </Link>
                     {venueDetails.bestPhoto && <img className="hero" src={venueDetails.bestPhoto.prefix + '900x700' + venueDetails.bestPhoto.suffix}/>}
                     <div className="details-info">
