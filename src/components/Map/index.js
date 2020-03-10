@@ -14,15 +14,6 @@ export default function Map({lat, lng, icon}) {
     zoom: 11.5
   });
 
-  
-  //component mounted
-  // useEffect(()=>{
-  //   if(!state.isLoading){
-  //     // console.log("details from redux store", state.details.location.lng)
-  //   }
-  //   // state.details.location && setVenueLocation(state.details.location)
-  // },[state.isLoading])
-
   useEffect(()=>{
     console.log("viewport updated",viewport)
     // state.details.location && setVenueLocation(state.details.location)
